@@ -4,7 +4,7 @@ import java.io.*;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static class Point{
+    static class Point implements Comparable<Point>{
         int x;
         int y;
 
@@ -16,6 +16,14 @@ public class Main {
         public String toString(){
 
             return x+ " "+y;
+        }
+
+        @Override
+        public int compareTo(Point o) {
+            if(this.x == o.x){
+                return Integer.compare(this.y,o.y);
+            }
+            return Integer.compare(this.x,o.x);
         }
     }
 
@@ -34,12 +42,7 @@ public class Main {
             int y = Integer.parseInt(st.nextToken());
             arr[i] = new Point(x,y);
         }
-        Arrays.sort(arr,(Point a,Point b)->{
-            if(a.x == b.x){
-                return Integer.compare(a.y,b.y);
-            }
-            return Integer.compare(a.x,b.x);
-        });
+        Arrays.sort(arr);
 
         for(int i=0; i<num; i++)
             System.out.println(arr[i].toString());

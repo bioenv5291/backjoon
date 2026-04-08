@@ -12,6 +12,11 @@ public class Main {
             this.x =x;
             this.y=y;
         }
+        @Override
+        public String toString(){
+
+            return x+ " "+y;
+        }
     }
 
     public static void main(String[] args) throws Exception {
@@ -37,6 +42,6 @@ public class Main {
         });
 
         for(int i=0; i<num; i++)
-            System.out.println(arr[i].x+" "+arr[i].y);
+            System.out.println(arr[i].toString());
     }
     }
